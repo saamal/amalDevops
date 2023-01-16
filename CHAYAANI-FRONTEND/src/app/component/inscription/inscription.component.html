@@ -1,0 +1,36 @@
+<div class="auth-ctn">
+<mat-card class="auth-card">
+    <mat-card-header class="auth-card-header">
+        <h2>Inscrivez-vous !</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="auth-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input name="username" [(ngModel)]="user.username" type="text" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Firstname</mat-label>
+                <input name="first"  [(ngModel)]="user.firstname" type="text" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>LastName</mat-label>
+                <input name="last"  [(ngModel)]="user.lastname" type="text" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input name="email"  [(ngModel)]="user.email" type="email" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>C.I.N</mat-label>
+                <input name="cin" [(ngModel)]="user.cin"  type="number" matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input name="psswd" [(ngModel)]="user.password"  type="password" matInput>
+            </mat-form-field>
+            <button mat-raised-button color="accent" (click)="newUser(this.user)">Valider</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+</div>

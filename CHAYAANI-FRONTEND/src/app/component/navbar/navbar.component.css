@@ -1,0 +1,31 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.rt-links{
+  display: flex;
+  flex: 1 1 ;
+  justify-content: space-around;
+}
+.rt-links a {
+  color: var(--mat-mdc-button-ripple-color);
+  text-decoration: none;
+  margin : fill;
+}
+.logo {
+  margin-top: 0.5% ;
+  width: 8%;
+  border-radius: 50%;
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 16px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:20;
+}

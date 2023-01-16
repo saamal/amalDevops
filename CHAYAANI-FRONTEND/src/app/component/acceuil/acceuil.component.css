@@ -1,0 +1,81 @@
+.acceuil-ctn {
+  background-image: url('src/assets/img/1.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  border: none 15px;
+}
+
+.acceuil-text {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+}
+
+.acceuil-title {
+  background-color: rgb(5, 47, 115);
+  margin-bottom: 10px;
+}
+
+.acceuil-desc {
+  background-color: rgba(0, 187, 255, 0.51);
+  font-size: 20px
+}
+
+.trajet-card {
+  margin: 10px 10px;
+  max-height: 500px;
+  border-radius: 10px;
+}
+
+.trajet-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.trajet-card-header {
+  background-color: rgb(5, 47, 115);
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px;
+}
+
+.info-section {
+  padding: 10px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.abonnement {
+  background-image: url("src/assets/img/start.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:10%;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.abonnement h2 {
+  font-size: xx-large;
+  font-weight: bolder;
+  background-color: rgb(5, 47, 115);
+  width: fit-content;
+  margin: 20px 0px;
+  text-align: center;
+  display: inline-block;
+
+}
+.abon-form mat-form-field{
+  margin-left: 20px;
+  margin-right: 20px;
+}

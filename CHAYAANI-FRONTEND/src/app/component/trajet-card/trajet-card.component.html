@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+    </div>
+    <mat-card-title>{{this.trajet.profile.Name}}</mat-card-title>
+    <mat-card-subtitle>{{this.trajet.profile.age}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="trajet.profile.gender">Male</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!(trajet.profile.gender)">Female</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="">
+    <label> Prix par personne </label> <br>
+    <h2>{{this.trajet.price}} DT</h2>
+  </mat-card-content>
+  <mat-card-actions class="actions">
+  <div>
+    <label> Depart </label>
+    <h2>{{this.trajet.depart}}</h2>
+    <label> Date </label>
+    <h2>{{this.trajet.dateDepart.toDateString()}}</h2>
+  </div>
+    <div>
+      <label> Destination </label>
+      <h2>{{this.trajet.destination}}</h2>
+      <label> Nombre de places </label>
+      <h2>{{this.trajet.nbpersonnes}}</h2>
+    </div>
+  </mat-card-actions>
+</mat-card>

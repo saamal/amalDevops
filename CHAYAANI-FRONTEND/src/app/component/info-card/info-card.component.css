@@ -1,0 +1,26 @@
+.info-card{
+  padding: 10px;
+  width: 350px;
+  height: 250px;
+  background-color: white;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+.info-card-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.info-card-icon{
+  background-color: lightblue;
+  border-radius: 15px;
+  padding: 10px;
+  width: auto;
+  height:auto;
+}
+.info-card-actions   {
+  justify-content: center;
+  text-decoration: none;
+}

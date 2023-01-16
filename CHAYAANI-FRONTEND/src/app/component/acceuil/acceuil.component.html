@@ -1,0 +1,56 @@
+<section class="acceuil-ctn">
+  <div class="acceuil-text">
+      <p class="acceuil-title">Bienvenue sur Chayaani!</p>
+      <p class="acceuil-desc">Et vous, qui allez vous retrouver ? choisissez le trajet qui convient le mieux.</p>
+  </div>
+  <mat-card class="trajet-card">
+    <mat-card-header class="trajet-card-header">
+      <h2>Ou allez vous ?</h2>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="trajet-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Depart</mat-label>
+          <input type="text" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Destination</mat-label>
+          <input type="text" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Date</mat-label>
+          <input type="date" matInput>
+          <mat-hint>01/01/2022</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de personnes</mat-label>
+          <input type="number" matInput>
+        </mat-form-field>
+        <mat-checkbox>Baggage Autorise</mat-checkbox>
+        <button mat-raised-button color="accent">Valider</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
+<section class="info-section">
+  <app-info-card cardTitle="Service client 24/7" cardContent="Notre equipe est a votre disposition" iconTitle="help"></app-info-card>
+  <app-info-card cardTitle="Comment proposer un trajet" cardContent="proposer un trajet est assez simple" iconTitle="announcement"></app-info-card>
+  <app-info-card cardTitle="Vous pouvez compter sur nous" cardContent="voir le FAQ pour toute question" iconTitle="code"></app-info-card>
+</section>
+<section class="abonnement">
+<h2>N'hesitez pas, abonnez vous maintenant !</h2>
+  <form class="abon-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input name="name" type="text" matInput [ngModel]="name">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input name="email" type="text" matInput [ngModel]="email">
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="onSinscrire()">S'inscrire</button>
+  </form>
+</section>
+<section class="trajet-list">
+  <app-carousel></app-carousel>
+</section>

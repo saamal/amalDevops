@@ -1,0 +1,71 @@
+<mat-card>
+    <mat-card-header>
+        <h2>Veuillez accomplir toutes les etapes pour creer votre offre.</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-stepper #stepper>
+            <mat-step [stepControl]="firstFormGroup" errorMessage="l'itineraire de l'offre est requis!">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Choisir votre itineraire !</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Depart</mat-label>
+                        <input [(ngModel)]="offre.villeDepart" matInput placeholder="Nom" formControlName="firstCtrl"
+                               required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Destination</mat-label>
+                        <input [(ngModel)]="offre.villeDestination" matInput placeholder="Nom"
+                               formControlName="firstCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperNext>Suivant</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" errorMessage="Veuillez specifier une date">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Date du Trajet ?</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Date</mat-label>
+                        <input [(ngModel)]="offre.dateDepart" type="date" matInput placeholder="Date"
+                               formControlName="secondCtrl"
+                               required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Precedent</button>
+                        <button mat-button matStepperNext>Suivant</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" errorMessage="Informations requises !">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Informations generales</ng-template>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nombre de places</mat-label>
+                        <input [(ngModel)]="offre.nbpersonnes" type="number" matInput placeholder="2-3"
+                               formControlName="secondCtrl"
+                               required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prix par Personne</mat-label>
+                        <input [(ngModel)]="offre.prix" type="currency" matInput placeholder="15DT"
+                               formControlName="secondCtrl"
+                               required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Precedent</button>
+                        <button mat-button matStepperNext>Suivant</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Confirmer</ng-template>
+                <p>C'est tout ! confirmer votre offre.</p>
+                <div>
+                    <button mat-button matStepperPrevious>Precedent</button>
+                    <button mat-button (click)="onClickConfirmer()">Confirmer</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </mat-card-content>
+</mat-card>

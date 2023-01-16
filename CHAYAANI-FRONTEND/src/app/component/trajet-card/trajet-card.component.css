@@ -1,0 +1,17 @@
+.example-card {
+  width: 42vw;
+  height: 40vh;
+  padding: 20px;
+}
+.actions{
+  display:flex;
+  justify-content: space-between;
+}
+label{
+  color: darkred;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

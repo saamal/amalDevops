@@ -1,0 +1,7 @@
+<div class="carousel-container">
+  <igx-carousel #carousel>
+    <igx-slide *ngFor="let slide of slides;">
+      <app-trajet-card [trajet]="slide"></app-trajet-card>
+    </igx-slide>
+  </igx-carousel>
+</div>
