@@ -1,43 +1,53 @@
 pipeline {
-  agent any
-  //tools {nodejs "node"}
+    agent any
+    environment{
+     
+        manifestsImg= ''
+      
+    }
     stages {
-    stage('Checkout') {
-      steps {
-        script {
+        stage('code Checkout') {
+            steps {
              git url: 'https://github.com/microservices-demo/carts.git'
-        
-        // git branch: 'main', credentialsId: 'amal', url: 'https://github.com/saamal/amalDevops.git'
-         //  sh "ls -lart ./*"  
-         //  sh "git branch -a"
-          }
-       }
-    }
-    stage('INSTALL') {
-      steps {
-        dir("CHAYAANI-FRONTEND") {
-                echo 'INSTALL'
-                sh "npm install"
+                   }
+        }
+       /* stage('Sonarqube analysis') {
+          steps {
+            withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar') {
+            sh ''' /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_scanner/bin/sonar-scanner \
+            -Dsonar.projectKey=service-carts  \
+            -Dsonar.projectName=service-carts  \
+            -Dsonar.sources=/var/lib/jenkins/workspace/Pipeline-microservices \
+            -Dsonar.java.binaries=./src/main/java \
+            -Dsonar.projectVersion=8.9.5 '''
             }
+               timeout(time: 10, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
+       }
           }
+        }*/
+           // Building Docker images
+        stage('Building docker images') {
+           steps{
+             script {          
+              manifestsImg=docker.build("manifests-image","/home/azureuser/microservices-demo/deploy/kubernetes")
+            }
+           }
         }
-    stage('BUILD-CHAYAANI') {
-      steps {
-        dir("CHAYAANI-FRONTEND") {
-            echo 'BUILD-CHAYAANI'
-            sh "npm run-script build"
-        }
-      }
+        //Uploading Docker images into Nexus Registry
+      /*  stage('Uploading to Nexus Repo') {
+         steps{  
+             script {
+                docker.withRegistry(registry,registryCredentials){
+                 manifestsImg.push('latest')
+
+               }
+              }
+           }
+        } */
+       
     }
-    stage('TEST-CHAYAANI') {
-      steps {
-        dir("CHAYAANI-FRONTEND") {
-            echo 'TEST-CHAYAANI'
-            sh "apt-get update"
-            sh "npm run-script test"
-        }
-      }
-    }
-  }
 }
+        
+     
 
