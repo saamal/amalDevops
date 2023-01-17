@@ -1,0 +1,41 @@
+pipeline {
+  agent any
+  tools {nodejs "node"}
+    stages {
+    stage('Checkout') {
+      steps {
+        script {
+           git branch: 'main', credentialsId: 'amal', url: 'https://github.com/saamal/amalDevops.git'
+           sh "ls -lart ./*"  
+           sh "git branch -a"
+          }
+       }
+    }
+    stage('INSTALL') {
+      steps {
+        dir("CHAYAANI-FRONTEND") {
+                echo 'INSTALL'
+                sh "npm install"
+            }
+          }
+        }
+    stage('BUILD-CHAYAANI') {
+      steps {
+        dir("CHAYAANI-FRONTEND") {
+            echo 'BUILD-CHAYAANI'
+            sh "npm run-script build"
+        }
+      }
+    }
+    stage('TEST-CHAYAANI') {
+      steps {
+        dir("CHAYAANI-FRONTEND") {
+            echo 'TEST-CHAYAANI'
+            sh "apt-get update"
+            sh "npm run-script test"
+        }
+      }
+    }
+  }
+}
+
