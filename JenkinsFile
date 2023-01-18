@@ -34,8 +34,8 @@ pipeline {
             }
            }
         }
-        //Uploading Docker images into Nexus Registry
-      /*  stage('Uploading to Nexus Repo') {
+        //Uploading Docker images into docker hub
+      /*  stage('Uploading to docker hub') {
          steps{  
              script {
                 docker.withRegistry(registry,registryCredentials){
