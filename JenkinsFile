@@ -3,8 +3,8 @@ pipeline {
     environment{
      
         manifestsimg= ''
-        registry="https://hub.docker.com/repository/docker/amalsg/repository/"
-        credentialregistry = 'amalsg'
+        registry="amalsg/repository"
+        credentialregistry = "amalsg"
            }
        // code checkout
        stages {
@@ -29,9 +29,8 @@ pipeline {
        stage('Uploading to docker hub') {
          steps{
          script {
-       
-     withDockerRegistry([ registry , credentialregistry]) {
-           manifestsimg.push()
+          docker.withRegistry(registry, credentialregistry){
+                 manifestsimg.push('latest')
            }
            }
             }
