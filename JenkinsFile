@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{
      
-        manifestsImg= ''
+        manifestsimg= ''
       
            }
        // code checkout
@@ -17,7 +17,7 @@ pipeline {
         stage('Building docker images') {
            steps{
              script {          
-              manifestsImg=docker.build("manifests-image","/home/azureuser/microservices-demo/deploy/kubernetes")
+              manifestsimg=docker.build("manifests-image","/home/azureuser/microservices-demo/deploy/kubernetes")
             }
            }
         }
@@ -27,7 +27,7 @@ pipeline {
          script {
        
            withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
-           manifestsImg.push()
+           manifestsimg.push()
            }
            }
             }
