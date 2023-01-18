@@ -3,8 +3,8 @@ pipeline {
     environment{
      
         manifestsimg= ''
-        registry="amalsg/repository"
-        credentialregistry='Dockerhub'
+        registry="https://hub.docker.com/repository/docker/amalsg/repository/"
+        credentialregistry = 'Dockerhub'
            }
        // code checkout
        stages {
