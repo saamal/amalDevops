@@ -30,7 +30,7 @@ pipeline {
          steps{
          script {
        
-     withDockerRegistry(['', credentialregistry]) {
+     withDockerRegistry([ registry , credentialregistry]) {
            manifestsimg.push()
            }
            }
