@@ -4,7 +4,7 @@ pipeline {
      
         manifestsImg= ''
       
-    }
+           }
        // code checkout
        stages {
            stage('code Checkout') {
@@ -24,8 +24,10 @@ pipeline {
         //Uploading Docker images into docker hub
        stage('Uploading to docker hub') {
          steps{
+         script {
            withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
            manifestsImg.push()
+           }
            }
             }
         }    
