@@ -24,7 +24,7 @@ pipeline {
            steps{
              script {          
              //  manifestsimg=docker.build("manifests-image","/home/azureuser/microservices-demo/deploy/kubernetes")
-             sh ' build -t amalsg/manifests-image'
+             sh 'docker build -t amalsg/manifests-image .'
             }
            }
         }
