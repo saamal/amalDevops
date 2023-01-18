@@ -29,7 +29,7 @@ pipeline {
          sh '  docker push repository/manifestsImg '
            //withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
          //  manifestsImg.push()
-           }
+         //  }
            }
             }
         }    
