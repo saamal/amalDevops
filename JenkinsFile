@@ -3,7 +3,8 @@ pipeline {
     environment{
      
         manifestsimg= ''
-      
+        registry="amalsg/repository"
+        credentialregistry='Dockerhub'
            }
        // code checkout
        stages {
@@ -13,10 +14,11 @@ pipeline {
                    }
            }
            
-           stage('Init'){ /*cnx with docker*/
+           /*stage('Init'){ /*cnx with docker*/
             steps{
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
+            */
         }
    
            // Building Docker images
@@ -32,7 +34,7 @@ pipeline {
          steps{
          script {
        
-           withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
+     withDockerRegistry('', credentialregistry) {
            manifestsimg.push()
            }
            }
