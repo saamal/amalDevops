@@ -26,7 +26,7 @@ pipeline {
          steps{
          script {
        
-           withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg/repository" ]) {
+           withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
            manifestsImg.push()
            }
            }
