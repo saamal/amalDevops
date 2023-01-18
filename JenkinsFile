@@ -22,16 +22,12 @@ pipeline {
            }
         }
         //Uploading Docker images into docker hub
-      /*  stage('Uploading to docker hub') {
-         steps{  
-             script {
-                docker.withRegistry(registry,registryCredentials){
-                 manifestsImg.push('latest')
-
-               }
-              }
-           }
-        } */
+       stage('Uploading to docker hub') {
+           withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
+           dockerImage.push()
+            }
+        }    
+        
        
     }
 }
