@@ -3,9 +3,10 @@ pipeline {
     environment{
      
         manifestsimg= ''
-        registry="https://hub.docker.com/repositories/amalsg"
-        // registry="amalsg/repository"
-        credentialregistry = "amalsg"
+      //  registry="https://hub.docker.com/repositories/amalsg"
+     //   credentialregistry = "amalsg"
+     DOCKERHUB_CREDENTIALS = credentials('amalsg')
+     
            }
        // code checkout
        stages {
@@ -22,7 +23,8 @@ pipeline {
         stage('Building docker images') {
            steps{
              script {          
-              manifestsimg=docker.build("manifests-image","/home/azureuser/microservices-demo/deploy/kubernetes")
+             //  manifestsimg=docker.build("manifests-image","/home/azureuser/microservices-demo/deploy/kubernetes")
+             sh ' build -t amalsg/manifests-image'
             }
            }
         }
@@ -30,9 +32,11 @@ pipeline {
        stage('Uploading to docker hub') {
          steps{
          script {
-          docker.withRegistry(registry, credentialregistry){
-                 manifestsimg.push('latest')
-           }
+          //docker.withRegistry(registry, credentialregistry){
+                 //manifestsimg.push('latest')
+         //  }
+         sh ' echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+         sh ' docker push amalsg/manifests-image:latest'
            }
             }
         }    
