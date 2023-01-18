@@ -25,11 +25,10 @@ pipeline {
        stage('Uploading to docker hub') {
          steps{
          script {
-         sh '  docker login -u amalsg -p Amal*2021! ' 
-         sh '  docker push repository/manifestsImg '
-           //withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg" ]) {
-         //  manifestsImg.push()
-         //  }
+       
+           withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repositories/amalsg/repository" ]) {
+           manifestsImg.push()
+           }
            }
             }
         }    
