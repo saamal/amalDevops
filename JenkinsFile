@@ -14,12 +14,8 @@ pipeline {
                    }
            }
            
-           /* stage('Init'){ /*cnx with docker*/
-            steps{
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-            }
-            
-        } */
+         
+        
    
            // Building Docker images
         stage('Building docker images') {
